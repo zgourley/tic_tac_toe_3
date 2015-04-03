@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'pacfontregular';
+    src: url('fonts/PAC-FONT-webfont.eot');
+    src: url('fonts/PAC-FONT-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/PAC-FONT-webfont.woff2') format('woff2'),
+         url('fonts/PAC-FONT-webfont.woff') format('woff'),
+         url('fonts/PAC-FONT-webfont.ttf') format('truetype'),
+         url('fonts/PAC-FONT-webfont.svg#pacfontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.board {
+  width: 400px;
+  height: 400px;
+  /*background-color: black;*/
+  margin: 0 auto;
+  padding: 0px;
+
+}
+
+.square {
+  border: 4px solid rgb(23, 35, 93);
+  width: 120px;
+  height: 120px;
+  display: inline-block;
+  background-color: black;
+  vertical-align: top;
+  /*margin: 1px;*/
+  border-radius: 12px;
+}
+
+h1{
+  font-family: "pacfontregular";
+  text-align: center;
+  color: rgb(255, 242, 0);
+  font-size: 36px;
+}
+
+body{
+  background-image: url("img/pac-wall.jpg");
+  background-repeat: no-repeat;
+}
+
+/*Columns*/
+
+#leftcol {
+  height: 100%;
+  display: inline-block;
+  margin-right: 125px;
+  margin-left: 45px;
+  margin-top: 29px;
+}
+
+#maincol {
+  height: 100%;
+  display: inline-block;
+  margin-left: 115px;
+}
+
+#rightcol {
+  height: 100%;
+  display: inline-block;
+  height: 100%;
+  display: inline-block;
+  background: black;
+  border: 4px solid rgb(29, 45, 122);
+  border-radius: 12px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-bottom: 2px;
+}
+
+/*Images*/
+
+.pacman {
+  background-image: url("img/pacman.png");
+  background-size: 95%;
+  background-repeat: no-repeat;
+
+}
+
+.inky {
+  background-image: url("img/inky.jpg");
+  background-size: 95%;
+  background-repeat: no-repeat;
+}
+
+
+/*Character Column*/
+
+#characters {
+  display: inline-block;
+  border: 4px solid rgb(23, 35, 93);
+  border-radius: 12px;
+  width: 105px;
+  float: left;
+  background: black;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
+#playimg {
+  display: block;
+}
+
+/*Play Button*/
+
+#playbutton {
+  background: black;
+  border: 3px solid rgb(23, 35, 93);
+  color: white;
+  border-radius: 12px;
+  float: right;
+}
+
+/*Winner Box*/
+
+#winbox {
+  background: black;
+  border: 3px solid rgb(23, 35, 93);
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  font-size: 45px;
+}
+
+#pman {
+  width: 50%;
+}
+
+
+
+
+
+
+
+
