@@ -13,6 +13,7 @@ function GameController($firebaseObject){
     self.announceWinner = false;
     self.resetGame = resetGame;
     self.ttt = firebaseSync();
+    var count = 0; 
 
 
     function firebaseSync(){
@@ -33,14 +34,16 @@ function GameController($firebaseObject){
                 {hasMove: "", image: ''}
                 ];
 
-        ttt.$save();
+        ttt.counter = 0;
 
-    });             
+       ttt.$save(); 
+
+    });  
+
         return ttt;
 
     } //end firebaseSync function
 
-    var count = 0; 
 
 function counter(){
 
@@ -66,15 +69,18 @@ function makeMove(sqrNum){
     console.log("makeMove works");
     var move;
 
-    console.log(self.ttt);
    
-    if (self.ttt[sqrNum].hasMove === ''){
-         move = counter();
+    if (self.ttt.squares[sqrNum].hasMove === ''){
+        move = counter();
+
         console.log(move);
         console.log(sqrNum);
-        self.ttt[sqrNum].hasMove = move;
-        console.log(self.ttt);
+        console.log(count);
+        self.ttt.squares[sqrNum].hasMove = move;
+        console.log(self.ttt.squares[sqrNum]);
         setWinner();
+
+        self.ttt.$save();
     }
 }
 
@@ -82,15 +88,15 @@ function setWinner(){
 
 console.log("setWinner works")
 
-var one = self.ttt[0].hasMove;
-var two = self.ttt[1].hasMove;
-var three = self.ttt[2].hasMove;
-var four = self.ttt[3].hasMove;
-var five = self.ttt[4].hasMove;
-var six = self.ttt[5].hasMove;
-var seven = self.ttt[6].hasMove;
-var eight = self.ttt[7].hasMove;
-var nine = self.ttt[8].hasMove;
+var one = self.ttt.squares[0].hasMove;
+var two = self.ttt.squares[1].hasMove;
+var three = self.ttt.squares[2].hasMove;
+var four = self.ttt.squares[3].hasMove;
+var five = self.ttt.squares[4].hasMove;
+var six = self.ttt.squares[5].hasMove;
+var seven = self.ttt.squares[6].hasMove;
+var eight = self.ttt.squares[7].hasMove;
+var nine = self.ttt.squares[8].hasMove;
 
 if ( one === "X" && two === "X" && three === "X" ||
      four === "X" && five === "X" &&  six === "X" ||
@@ -163,7 +169,7 @@ if (count === 9){
 
 function resetGame(){
  
-  ttt.squares = [
+  self.ttt.squares = [
                 {hasMove: "", image: ''},
                 {hasMove: "", image: ''},
                 {hasMove: "", image: ''},
@@ -175,7 +181,7 @@ function resetGame(){
                 {hasMove: "", image: ''}
                 ];
 
-var count = 0;     
+count = 0;     
 
 self.gameOver = "";
     self.announceWinner = false;           

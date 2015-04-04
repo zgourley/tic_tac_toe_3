@@ -19,14 +19,14 @@
 
 <body ng-controller="GameController as game">
 
-	<p color="white">{{2+2}}</p>
-
 <div id="leftcol">
 	<div id="characters">
-		<h2>Choose <div> Character</h2>
+		<h2>Players</h2>
 		<div id="playimg">
 			<img id='pman' src="img/pacman.png"><br>
-			<img class="inky" src="img/inky.jpg">
+			<p>Pac-Man</p><br>
+			<img class="inky" src="img/inky.jpg"><br>
+			<p>Inky</p>
 		</div> <!-- end playimg div -->
 
 	</div> <!-- end characters div -->
@@ -35,13 +35,10 @@
 
 <div id="maincol" >
 
-<div id="winbox">
-{{game.gameOver }}
-	<!-- <h2>{{game.gameOver}}</h2> -->
 
-</div> <!-- end winbox div  -->
+
 	
-	<h1>TIC PAC GHOST</h1>
+	<h1 id="title">tic pac ghost</h1>
 
 	<div class="board">
 
@@ -49,7 +46,7 @@
 
 		ng-click="game.makeMove($index)"  
 
-		ng-class="{pacman : game.ttt[$index].hasMove === 'X', inky : game.ttt[$index].hasMove === 'O'}"
+		ng-class="{pacman : game.ttt.squares[$index].hasMove === 'X', inky : game.ttt.squares[$index].hasMove === 'O'}"
 
 
 		></div></div> 
@@ -61,7 +58,12 @@
 </div> <!-- end maincol div -->
 
 <div id="rightcol" ng-click="game.resetGame()">
-	<button>Play Again</button>
+
+<div id="winbox">
+{{game.gameOver }}
+</div> <!-- end winbox div  -->
+
+	<span id="playbutton">Play Again</span>
 </div> <!-- end rightcol div
 
 </body>
